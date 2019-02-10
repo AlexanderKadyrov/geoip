@@ -70,6 +70,6 @@ class IPApiDriver extends AbstractGeoIPDriver
             $key = array_get($this->config, 'key');
         }
 
-        return $baseUrl.$ip.(($key) ? '?key='.$key : '' . '&lang=ru');
+        return $baseUrl.$ip.(($key) ? '?key='.$key : '').'&lang=ru';
     }
 }
