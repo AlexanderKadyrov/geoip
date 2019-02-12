@@ -58,18 +58,18 @@ class IPApiDriver extends AbstractGeoIPDriver
         if (array_get($this->config, 'secure', false)) {
             $protocol = 'https:';
         }
-
+        
         // default to free service
         // free service does not support https
-        $baseUrl = 'http://ip-api.com/json/?lang=ru';
+        $baseUrl = 'http://ip-api.com/json/';
         $key = '';
-
+        
         // if key is set change to pro service
         if (array_get($this->config, 'key', false)) {
-            $baseUrl = $protocol.'//pro.ip-api.com/json/?lang=ru';
+            $baseUrl = $protocol.'//pro.ip-api.com/json/';
             $key = array_get($this->config, 'key');
         }
-
-        return $baseUrl.$ip.(($key) ? '&key='.$key : '');
+        
+        return $baseUrl . $ip. '?lang=ru' . 'key=' . $key ?: '';
     }
 }
